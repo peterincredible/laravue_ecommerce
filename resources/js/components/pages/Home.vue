@@ -133,6 +133,7 @@ export default {
          if(search !=0){
               let {data} = await axios.get(`/api/product/search/category/${search}`);
               this.products = data.product;
+              console.log(this.products);
          }else{
              let {data} = await axios.get('/api/product');
              this.products = data.products;
@@ -143,6 +144,7 @@ export default {
         if(order == 'asc'){
             let {data} = await axios.get(`/api/product/search/orderby/${order}`);
             this.products = data.product;
+            console.log(this.products);
             
         }else{
                  let {data} = await axios.get(`/api/product/search/orderby/${order}`);
@@ -152,6 +154,7 @@ export default {
       async search_price_range(pricerange){
         let {data} = await axios.get(`/api/product/search/price/${pricerange.min}/${pricerange.max}`);
         this.products = data.product;
+        console.log(this.products);
         // console.dir(data);
         // console.dir(pricerange);
       },
@@ -171,6 +174,7 @@ export default {
       try{
              let {data} = await axios.get('/api/product');
              this.products = data.products;
+             console.log(this.products);
              let categories =await axios.get('api/category')
              this.categories = categories.data.categories
              this.page_loading = false;
