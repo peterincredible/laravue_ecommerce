@@ -137,6 +137,7 @@ export default {
          }else{
              let {data} = await axios.get('/api/product');
              this.products = data.products;
+             console.log(this.products);
          }   
       },
       async orderby(order){
@@ -149,6 +150,7 @@ export default {
         }else{
                  let {data} = await axios.get(`/api/product/search/orderby/${order}`);
                   this.products = data.product;
+                  console.log(this.products);
         }
       },
       async search_price_range(pricerange){
@@ -161,11 +163,12 @@ export default {
       async search_price_above(priceabove){
             let {data} = await axios.get(`/api/product/search/above/${priceabove}`);
             this.products = data.product;
-            console.dir(data.product);
+            console.dir(this.product);
       },
       async search_small_change(text){
             let {data} = await axios.get(`/api/product/search/text/${text}`);
             this.products = data.product;
+            console.log(this.products);
             // console.dir(data);
         //  console.log(text);
       }
